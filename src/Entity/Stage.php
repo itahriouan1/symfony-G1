@@ -15,36 +15,82 @@ class Stage
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $Titre = null;
+    private ?string $Title = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $startDate = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $EndDate = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $Description = null;
+    private ?string $Descrition = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $Company = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTitre(): ?string
+    public function getTitle(): ?string
     {
-        return $this->Titre;
+        return $this->Title;
     }
 
-    public function setTitre(string $Titre): self
+    public function setTitle(string $Title): self
     {
-        $this->Titre = $Titre;
+        $this->Title = $Title;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+
+    public function getStartDate(): ?\DateTimeInterface
     {
-        return $this->Description;
+        return $this->startDate;
     }
 
-    public function setDescription(string $Description): self
+    public function setStartDate(\DateTimeInterface $startDate): self
     {
-        $this->Description = $Description;
+        $this->startDate = $startDate;
+
+        return $this;
+    }
+
+    public function getEndDate(): ?\DateTimeInterface
+    {
+        return $this->EndDate;
+    }
+
+    public function setEndDate(\DateTimeInterface $EndDate): self
+    {
+        $this->EndDate = $EndDate;
+
+        return $this;
+    }
+
+    public function getDescrition(): ?string
+    {
+        return $this->Descrition;
+    }
+
+    public function setDescrition(string $Descrition): self
+    {
+        $this->Descrition = $Descrition;
+
+        return $this;
+    }
+
+    public function getCompany(): ?string
+    {
+        return $this->Company;
+    }
+
+    public function setCompany(string $Company): self
+    {
+        $this->Company = $Company;
 
         return $this;
     }
